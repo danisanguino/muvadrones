@@ -1,7 +1,6 @@
 "use client"
 
 import { supabase } from "@/supabase/supabaseClient";
-// import { redirect } from 'next/navigation'
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -10,24 +9,9 @@ export default function Home() {
   const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [error, setError] = useState<string>("");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // const { error } = await supabase.auth.signInWithPassword({
-    //   email,
-    //   password,
-    // });
-
-    // if (error) {
-    //   alert("Mail o contraseña incorrectas / " + error.message);
-    //   setError(error.message);
-    // } else {
-    //   alert("bienvenido al area de cliente");
-    //   router.push("/clients");
-
-    // }
 
     const { data: { session }, error } = await supabase.auth.signInWithPassword({
     email,
@@ -35,7 +19,7 @@ export default function Home() {
     });
 
     if (error || !session) {
-      alert("Credenciales incorrectas o error al iniciar sesión. / " + error?.message);
+      alert("Correo o contraseña incorrectos. Por favor compruebe sus datos.");
       return;
     }
 
@@ -82,10 +66,10 @@ export default function Home() {
           onChange={(e) => setPassword(e.target.value)}
           required
           />
-          <p>{error}</p>
-          <button type="submit">pa entro</button>
+
+          <button type="submit">Acceder</button>
         </form>
     </div>
 
   );
-}
+};
