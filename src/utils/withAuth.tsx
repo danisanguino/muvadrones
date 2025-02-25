@@ -14,7 +14,7 @@ export const withAuth = (allowedRoles: string[]) => (WrappedComponent: React.FC)
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
 
         if (sessionError || !session) {
-          router.push("/"); // 🚫 Redirige si no hay sesión
+          router.push("/");
           return;
         }
 
@@ -25,26 +25,26 @@ export const withAuth = (allowedRoles: string[]) => (WrappedComponent: React.FC)
           .single();
 
         if (userError) {
-          console.error("❌ Error obteniendo el rol:", userError.message);
-          router.push("/"); // 🔒 Redirige si hay error
+          console.error("Error obteniendo el rol:", userError.message);
+          router.push("/"); 
           return;
         }
 
         if (!user || !allowedRoles.includes(user.rol)) {
-          console.warn("🚫 Rol no autorizado:", user?.rol);
-          router.push("/"); // 🚷 Redirige si el rol no está permitido
+          console.warn("Rol no autorizado:", user?.rol);
+          router.push("/"); 
           return;
         }
 
-        setLoading(false); // ✅ Autorizado -> muestra el contenido
+        setLoading(false); 
       };
 
       checkAuth();
-    }, [router, allowedRoles]); // 🔄 Se ejecuta si cambian router o roles
+    }, [router, allowedRoles]); 
 
-    if (loading) return <p>⏳ Cargando... 🚀</p>; // ⏳ Evita mostrar la página antes de verificar
-    return <WrappedComponent {...props} />; // ✅ Renderiza si está autorizado
+    if (loading) return <p>⏳ Cargando... 🚀</p>; 
+    return <WrappedComponent {...props} />; 
   };
 
-  return AuthWrapper; // 🪄 Devuelve el componente protegido
+  return AuthWrapper; 
 };
