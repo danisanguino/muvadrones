@@ -28,3 +28,7 @@ export interface IProject {
   descripcion: string;
   empresa_id: string;
 };
+
+export interface IProps {
+  juanillo: IProject[] | null;
+}
