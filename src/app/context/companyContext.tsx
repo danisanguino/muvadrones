@@ -9,6 +9,7 @@ const CompanyContext = createContext<ICompanyContext | undefined>(undefined);
 
 //Create provider
 const CompanyProvider = ({ children }: ICompanyProviderProps) => {
+
   const [companyId, setCompanyId] = useState<string | null>(null);
 
   return (

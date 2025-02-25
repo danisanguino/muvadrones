@@ -3,12 +3,16 @@
 import { supabase } from "@/supabase/supabaseClient";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useCompany } from "./context/companyContext";
 
 
 export default function Home() {
   const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  //setCompanyId from context
+  const { setCompanyId } = useCompany();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,10 +27,10 @@ export default function Home() {
       return;
     }
 
-    // Get role from supabase
+    // Get role and company id from supabase
     const { data: user, error: userError } = await supabase
     .from("usuarios")
-    .select("rol")
+    .select("rol, empresa_id")
     .eq("id", session.user.id)
     .single();
 
@@ -35,6 +39,9 @@ export default function Home() {
       alert("No se pudo obtener el rol del usuario.");
       return;
     }
+
+    //save companyId in context
+    setCompanyId(user.empresa_id);
 
     // Redirect to the corresponding page
     if (user.rol === "admin_empresa") {
