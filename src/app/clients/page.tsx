@@ -4,15 +4,14 @@ import { withAuth } from "@/utils/withAuth";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useCompany } from "../context/companyContext";
-import { ICompany, IProject, IUser, IProps } from '../interfaces/interfaces';
+import { ICompany, IProject, IUser } from '../interfaces/interfaces';
 import { fetchData } from "@/utils/fetchData";
 import { logout } from "@/utils/logout";
 
 
-const ClientsPage =  ( { juanillo }: IProps) => {
+const ClientsPage = () =>  {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const projectId = searchParams.get("projectId");
+  // const searchParams = useSearchParams();
   const [loading, setLoading] = useState<string>("");
   const [companyName, setCompanyName] = useState<ICompany>();
   const [userName, setUserName] = useState<IUser>();
