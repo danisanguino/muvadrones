@@ -6,8 +6,7 @@ import { useEffect, useState } from "react";
 import { useCompany } from "../context/companyContext";
 import { ICompany, IProject, IUser } from '../interfaces/interfaces';
 import { fetchData } from "@/utils/fetchData";
-import { logout } from "@/utils/logout";
-
+import { Sidebar } from "../components/sidebar";
 
 const ClientsPage = () =>  {
   const router = useRouter();
@@ -17,6 +16,7 @@ const ClientsPage = () =>  {
   const [userName, setUserName] = useState<IUser>();
   const [projects, setProjects] = useState<IProject[] | null>([]);
 
+  //get companyId from context
   const { companyId } = useCompany();
 
 
@@ -31,15 +31,6 @@ const ClientsPage = () =>  {
   
   return (
     <>
-      {loading && <p>{loading}</p>}
-      {userName?.nombre ? (
-        <h1>Hola {userName?.nombre}, área de Clientes</h1>
-        ) : (
-        <h1>Área de clientes</h1>
-      )}
-      <button onClick={() => logout(setLoading, router)}>Salir</button>
-      <h2>Empresa: {companyName?.nombre}</h2>
-      <h3>Proyectos wenis</h3>
       <ul>
         {projects && projects.map((e) => (
           <li key={e.id}>

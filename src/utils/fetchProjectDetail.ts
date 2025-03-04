@@ -1,9 +1,7 @@
-import { IProject } from "@/app/interfaces/interfaces";
 import { supabase } from "@/supabase/supabaseClient";
-import { SetStateAction } from "react";
 
 export const fetchProjectDetail = async (
-  projectId: any,
+  projectId: string | string[] | undefined,
   setProject: (arg0: any) => void,
   setLoading: (arg0: string) => void
 ) => {

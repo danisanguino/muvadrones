@@ -13,4 +13,5 @@ export const logout = async (
     };
     setLoading("Cerrando sesión...");
     router.push("/");
-  };
+
+};

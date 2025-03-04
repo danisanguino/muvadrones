@@ -1,10 +1,9 @@
 import { Sidebar } from "../components/sidebar";
 
-
 export default function LayoutCLientDashboard({ children }:any) {
   return (
     <div>
-      <Sidebar/>
+      {/* <Sidebar/> */}
       {children}
     </div>
   );

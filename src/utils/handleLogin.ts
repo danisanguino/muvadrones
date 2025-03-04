@@ -24,12 +24,10 @@ export const handleLogin = async (
     // Get role and company id from supabase
     const { data: user, error: userError } = await supabase
     .from("usuarios")
-    .select("rol, empresa_id")
+    .select("*")
     .eq("id", session.user.id)
     .single();
     
-
-
     if (userError || !user) {
       alert("No se pudo obtener el rol del usuario.");
       return;

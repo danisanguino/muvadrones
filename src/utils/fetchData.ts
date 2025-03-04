@@ -3,7 +3,7 @@ import { supabase } from "@/supabase/supabaseClient";
 import { SetStateAction } from "react";
 
 export const fetchData = async (
-  companyId: string | null,
+  companyId: string | string[] | null | undefined,
   setCompanyName: { (value: SetStateAction<ICompany | undefined>): void; (arg0: any): void; },
   setUserName: { (value: SetStateAction<IUser | undefined>): void; (arg0: any): void; },
   setProjects: { (value: SetStateAction<IProject[] | null>): void; (arg0: any[] | null): void; },
@@ -23,7 +23,7 @@ export const fetchData = async (
       .eq("empresa_id", companyId)
       .single();
       
-      const { data: dataProjects, error: errorDataProjects } = await supabase
+      const { data: projects, error: errorProjects } = await supabase
       .from("proyectos")
       .select("*")
       .eq("empresa_id", companyId);
@@ -31,9 +31,9 @@ export const fetchData = async (
       
       setCompanyName(company);
       setUserName(user);
-      setProjects(dataProjects);
+      setProjects(projects);
       
-      if (errorDataProjects || errorCompany || errorUser) {
+      if (errorProjects || errorCompany || errorUser) {
         setLoading("Error loading data.");
         return;
       };
