@@ -40,6 +40,8 @@ const AdminPage = () => {
     router.push(`/admin/${companyId}`);
   }
 
+  
+
 
   return (
   <>
@@ -51,6 +53,7 @@ const AdminPage = () => {
         </li>
       ))}
     </ul>
+    <button onClick={() => router.push("admin/createCompany")}>Crear empresa</button>
     <Logout />
   </>
   );

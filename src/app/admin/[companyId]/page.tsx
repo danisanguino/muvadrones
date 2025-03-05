@@ -1,5 +1,6 @@
 "use client"
 
+import BackButton from "@/app/components/backButton";
 import { ICompany, IProject, IUser } from "@/app/interfaces/interfaces";
 import { fetchUsersAndProjects } from "@/utils/fetchUsersAndProjects";
 import { withAuth } from "@/utils/withAuth";
@@ -21,7 +22,15 @@ function companyData() {
   }, [])
 
   const handleUpdateProject = (projectId: string)=> {
-      router.push(`/admin/${companyId}/${projectId}`)
+      router.push(`/admin/${companyId}/projectDetail/${projectId}`)
+  }
+
+  const handleUpdateUser = (juanillo: string)=> {
+    router.push(`/admin/${companyId}/userDetail/${juanillo}`)
+  }
+
+  const handleCreateUser = ()=> {
+    router.push(`/admin/${companyId}/createUser/${companyId}`)
   }
   
   if (loading) return <p>Cargando usuarios...</p>;
@@ -31,7 +40,11 @@ function companyData() {
       <h2>Usuarios de {companyName?.nombre} </h2>
         <ul>
           {userName?.map((e) => (
-            <li key={e.id}> {e.email}</li>
+            <li key={e.id}>
+              {e.email}
+              <button onClick={()=>handleUpdateUser(e.id)}>Editar</button>
+              <button>Borrar</button>
+            </li>
           ))}
         </ul>
         <h2>Proyectos</h2>
@@ -49,6 +62,8 @@ function companyData() {
           <p>Esta empresa no tiene proyectos</p>
           )
         }
+        <button onClick={handleCreateUser}>Crear usuario AQUI</button>
+        <BackButton/>
     </>
   )
 }
