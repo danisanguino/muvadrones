@@ -10,23 +10,23 @@ export const handleCreateUser = async (
   userName: string,
   setUserName: Dispatch<SetStateAction<string>>,
   userRole: string,
-  userIdCompany: string | string [] | undefined
+  userIdCompany: string | string[] | undefined
 ) => {
   
   e.preventDefault();
 
-  //insert in auth with pass
+  // Insert in auth with pass
   const { data: dataAuth, error: authError } = await supabase.auth.signUp({
     email: userMail,
     password: userPass, 
   });
 
-  if(authError){
-    alert("error al crear usuario en auth " + authError.message)
+  if (authError) {
+    alert("Error al crear usuario en auth: " + authError.message);
     return;
   }
 
-  //take ID and create userId
+  // Take ID and create userId
   const userId = dataAuth.user?.id;
 
   if (!userId) {
@@ -34,27 +34,26 @@ export const handleCreateUser = async (
     return;
   }
 
-  //insert other data
+  // Insert other data
   const { error: userError } = await supabase
-  .from("usuarios")
-  .insert({
-    "id": userId,
-    "nombre": userName,
-    "email": userMail,
-    "empresa": null,
-    "rol": userRole,
-    "empresa_id": userIdCompany
-  });
+    .from("usuarios")
+    .insert({
+      "id": userId,
+      "nombre": userName,
+      "email": userMail,
+      "empresa": null,
+      "rol": userRole,
+      "empresa_id": userIdCompany
+    });
 
   if (userError) {
-    alert("error al crear usuario mamona! " + userError.message)
+    alert("Error al crear usuario en la tabla de usuarios: " + userError.message);
     return;
   } else {
-    alert(`usuario ${userMail} creado con éxito`)
-  };
+    alert(`Usuario ${userMail} creado con éxito`);
+  }
 
   setUserName("");
   setUserMail("");
   setUserPass("");
-
 }
