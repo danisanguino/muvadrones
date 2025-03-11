@@ -2,7 +2,9 @@
 
 import BackButton from "@/app/components/backButton";
 import { ICompany, IProject, IUser } from "@/app/interfaces/interfaces";
+import { supabase } from "@/supabase/supabaseClient";
 import { fetchUsersAndProjects } from "@/utils/fetchUsersAndProjects";
+import { handleDeleteProject } from "@/utils/handleDeleteProject";
 import { handleDeleteUser } from "@/utils/handleDeleteUser";
 import { withAuth } from "@/utils/withAuth";
 import { useParams, useRouter } from "next/navigation"
@@ -34,7 +36,10 @@ function companyData() {
     router.push(`/admin/${companyId}/createUser/${companyId}`)
   };
 
-  
+  const handleCreateProject = () => {
+    router.push(`/admin/${companyId}/createProject/${companyId}`)
+  }
+
   if (loading) return <p>Cargando datos...</p>;
 
   return (
@@ -55,8 +60,8 @@ function companyData() {
               {projects.map((e)=> (
                <li key={e.id}>
                 {e.nombre}
-                <button onClick={() => handleUpdateProject(e.id)}>Edit</button>
-                <button>Borrar</button>
+                <button onClick={()=> handleUpdateProject(e.id)}>Editar</button>
+                <button onClick={()=> handleDeleteProject(e.id)}>Borrar</button>
               </li> 
               ))}
             </ul>
@@ -65,6 +70,7 @@ function companyData() {
           )
         }
         <button onClick={handleCreateUser}>Crear usuario AQUI</button>
+        <button onClick={handleCreateProject}>Crear proyecto AQUI</button>
         <BackButton/>
     </>
   )
