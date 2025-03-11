@@ -5,7 +5,8 @@ import { Dispatch, SetStateAction } from "react";
 export const fetchUserDetail = async (
   userId: string | string[] | undefined,
   setUser: Dispatch<SetStateAction<IUser | null | undefined>>,
-  setLoading: Dispatch<SetStateAction<boolean>>
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  // setUserName: Dispatch<SetStateAction<string | undefined>>
   )=> {
     
   try {
@@ -20,6 +21,7 @@ export const fetchUserDetail = async (
     }
 
     setUser(userData);
+    // setUserName(userData);
     
   } catch (error) {
     alert("Sorry, something is wrong")

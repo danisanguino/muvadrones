@@ -35,7 +35,7 @@ function companyData() {
   };
 
   
-  if (loading) return <p>Cargando usuarios...</p>;
+  if (loading) return <p>Cargando datos...</p>;
 
   return (
     <>
