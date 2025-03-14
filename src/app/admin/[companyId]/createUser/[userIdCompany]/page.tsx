@@ -2,10 +2,11 @@
 
 import BackButton from "@/app/components/backButton";
 import { handleCreateUser } from "@/utils/handleCreateUser";
-import { useParams } from "next/navigation"
+import { withAuth } from "@/utils/withAuth";
+import { useParams, useRouter } from "next/navigation"
 import { useState } from "react";
 
-export default function CreateUser() {
+function CreateUser() {
   const [userName, setUserName] = useState<string>("");
   const [userMail, setUserMail] = useState<string>("");
   const [userPass, setUserPass] = useState<string>("");
@@ -13,10 +14,12 @@ export default function CreateUser() {
 
   const { userIdCompany } = useParams();
 
+  const router= useRouter();
+
   return (
     <>
       <h2>Crear usuario para empresa con ID: {userIdCompany}</h2>
-      <form onSubmit={(e)=>handleCreateUser(e, userMail, setUserMail, userPass, setUserPass, userName, setUserName, userRole, userIdCompany)}>
+      <form onSubmit={(e)=>handleCreateUser(e, userMail, setUserMail, userPass, setUserPass, userName, setUserName, userRole, userIdCompany, router)}>
         <input
           type="text"
           name="name"
@@ -56,3 +59,5 @@ export default function CreateUser() {
     </>
   )
 }
+
+export default withAuth(["admin_empresa"])(CreateUser)

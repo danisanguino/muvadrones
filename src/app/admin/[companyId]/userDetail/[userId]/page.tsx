@@ -19,7 +19,8 @@ function UserDetail () {
   
   useEffect(() => {  
       fetchUserDetail(userId, setUser, setLoading);
-  }, [])
+  }, []);
+
 
   const handleUpdateUser= async (e: React.FormEvent)=> {
     e.preventDefault();
@@ -28,17 +29,16 @@ function UserDetail () {
       "nombre": userName || user?.nombre,
       "email": userMail || user?.email || "",
       "rol": userRole || "cliente"
-    }
+    };
 
     const {error: errorUser} = await supabase
     .from("usuarios")
     .update(updatedData)
     .eq("id", userId)
-    // .single()
 
     if(errorUser) {
       alert("Rellena alguno de los campos para actualizar");
-    }
+    };
 
     // supabase auth handle pass
     if (userPass) {

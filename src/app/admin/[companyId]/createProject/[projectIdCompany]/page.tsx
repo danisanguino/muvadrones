@@ -2,10 +2,11 @@
 
 import BackButton from "@/app/components/backButton";
 import { handleCreateProject } from "@/utils/handleCreateProject";
+import { withAuth } from "@/utils/withAuth";
 import { useParams, useRouter} from "next/navigation"
 import { useState } from "react";
 
-export default function CreateProject () {
+function CreateProject () {
 
   const [projectName, setProjectName] = useState<string>("");
   const [projectMin, setProjectMin] = useState<string>(""); 
@@ -97,3 +98,5 @@ export default function CreateProject () {
     </>
   )
 }
+
+export default withAuth(["admin_empresa"])(CreateProject);

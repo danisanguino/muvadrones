@@ -17,7 +17,7 @@ export const handleLogin = async (
     });
     
     if (error || !session) {
-      alert("Correo o contraseña incorrectos. Por favor compruebe sus datos.");
+      alert("Correo o contraseña incorrectos. Por favor compruebe sus datos. " + error?.message);
       return;
     }
     

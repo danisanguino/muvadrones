@@ -22,13 +22,13 @@ export const handleCreateProject = async (
     "empresa_id": projectIdCompany,
     "nombre": projectName,
     "Miniatura": projectMin,
-    "Modelo 3D": project3D,
-    "Nube Puntos":projectCloud,
+    "Modelo3D": project3D,
+    "NubePuntos":projectCloud,
     "Ortomosaico": projectOrto,
-    "Curvas Nivel": projectCurve,
+    "CurvasNivel": projectCurve,
     "MDT": projectMDT,
     "MDS": projectMDS,
-    "Plano CAD": projectCAD,
+    "PlanoCAD": projectCAD,
   }
   
   const { error: errorProject } = await supabase
@@ -40,11 +40,6 @@ export const handleCreateProject = async (
   }else {
     alert("Projecto creado con éxito");
     router.back();
-    // setProjectName("");
-    // setProjectMin("");
-    // setProject3D("");
-    // setProjectCloud("");
-    // setProjectOrto("");
   };
 
 };

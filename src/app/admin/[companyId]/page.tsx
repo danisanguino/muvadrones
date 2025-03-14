@@ -2,7 +2,6 @@
 
 import BackButton from "@/app/components/backButton";
 import { ICompany, IProject, IUser } from "@/app/interfaces/interfaces";
-import { supabase } from "@/supabase/supabaseClient";
 import { fetchUsersAndProjects } from "@/utils/fetchUsersAndProjects";
 import { handleDeleteProject } from "@/utils/handleDeleteProject";
 import { handleDeleteUser } from "@/utils/handleDeleteUser";
@@ -28,8 +27,8 @@ function companyData() {
       router.push(`/admin/${companyId}/projectDetail/${projectId}`)
   };
 
-  const handleUpdateUser = (juanillo: string)=> {
-    router.push(`/admin/${companyId}/userDetail/${juanillo}`)
+  const handleUpdateUser = (companyId: string)=> {
+    router.push(`/admin/${companyId}/userDetail/${companyId}`)
   };
 
   const handleCreateUser = ()=> {

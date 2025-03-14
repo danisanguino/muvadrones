@@ -25,6 +25,13 @@ export interface IUser {
 export interface IProject {
   id: string;
   nombre: string;
-  descripcion: string;
   empresa_id: string;
+  Miniatura: string;
+  Modelo3D: string;
+  NubePuntos: string;
+  Ortomosaico: string;
+  CurvasNivel: string;
+  MDT: string;
+  MDS: string;
+  PlanoCAD: string;
 };

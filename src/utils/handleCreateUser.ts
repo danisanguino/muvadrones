@@ -1,4 +1,5 @@
 import { supabase } from "@/supabase/supabaseClient";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { Dispatch, SetStateAction } from "react";
 
 export const handleCreateUser = async (
@@ -10,11 +11,12 @@ export const handleCreateUser = async (
   userName: string,
   setUserName: Dispatch<SetStateAction<string>>,
   userRole: string,
-  userIdCompany: string | string[] | undefined
+  userIdCompany: string | string[] | undefined,
+  router: AppRouterInstance
 ) => {
   
   e.preventDefault();
-
+  
   // Insert in auth with pass
   const { data: dataAuth, error: authError } = await supabase.auth.signUp({
     email: userMail,
@@ -34,17 +36,19 @@ export const handleCreateUser = async (
     return;
   }
 
-  // Insert other data
-  const { error: userError } = await supabase
-    .from("usuarios")
-    .insert({
+  const createAllFields = {
       "id": userId,
       "nombre": userName,
       "email": userMail,
       "empresa": null,
       "rol": userRole,
       "empresa_id": userIdCompany
-    });
+  }
+
+  // Insert other data
+  const { error: userError } = await supabase
+    .from("usuarios")
+    .upsert(createAllFields);
 
   if (userError) {
     alert("Error al crear usuario en la tabla de usuarios: " + userError.message);
@@ -52,7 +56,7 @@ export const handleCreateUser = async (
   } else {
     alert(`Usuario ${userMail} creado con éxito`);
   }
-
+  router.back();
   setUserName("");
   setUserMail("");
   setUserPass("");
