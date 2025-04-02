@@ -35,3 +35,7 @@ export interface IProject {
   MDS: string;
   PlanoCAD: string;
 };
+
+export interface IFbxModel {
+  url: string;
+}

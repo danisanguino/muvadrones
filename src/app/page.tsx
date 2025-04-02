@@ -4,12 +4,13 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useCompany } from "./context/companyContext";
 import { handleLogin } from "@/utils/handleLogin";
+import FbxModel from "./components/fbxModel";
 
+import "../css/styles.css";
 
 export default function Home() {
   const router = useRouter();
-  // const searchParams = useSearchParams();
-  // const urlUser = searchParams.get("userId");
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   
@@ -38,6 +39,7 @@ export default function Home() {
 
           <button type="submit">Acceder</button>
         </form>
+        {/* <FbxModel url="https://drive.google.com/uc?export=download&id=1-z94aT0TYnVBptAMf7Zio2haBMiwXlbd"/> */}
     </div>
 
   );

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { IProject } from '../../interfaces/interfaces';
 import { fetchProjectDetail } from "@/utils/fetchProjectDetail";
 import BackButton from "@/app/components/backButton";
+import FbxModel from "@/app/components/fbxModel";
 
 function ProjectDetailPage() {
 
@@ -23,7 +24,9 @@ function ProjectDetailPage() {
     <div>
       {loading && <p>{loading}</p>}
       <h3>Hola, estás en el proyecto: {project?.nombre}</h3>
-      <p>{project?.descripcion}</p>
+      {/* Renderizar el modelo FBX si el proyecto tiene una URL */}
+      <FbxModel url="https://drive.google.com/file/d/1-z94aT0TYnVBptAMf7Zio2haBMiwXlbd/view?usp=drive_link"/>
+      <FbxModel url={project?.Miniatura || ""}/>
       <BackButton/>
     </div>
   );

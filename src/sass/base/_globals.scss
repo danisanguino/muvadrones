@@ -1,0 +1,22 @@
+@use "./variables" as v;
+
+body {
+  background-color: v.$bg-body;
+  font-family: v.$principal-font;
+}
+
+form {
+  background-color: v.$bg-dark-grey;
+  color: v.$font-grey;
+  border: 1px solid v.$border-grey;
+  padding: 20px;
+  border-radius: 5px;
+
+  input {
+    border: 1px solid red;
+  }
+
+  button {
+    border: 1px solid green;
+  }
+}

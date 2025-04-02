@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 export const fetchProjectDetail = async (
   projectId: string | string[] | undefined,
   setProject: (arg0: any) => void,
-  setLoading: Dispatch<SetStateAction<boolean>>
+  setLoading: Dispatch<SetStateAction<string>>
 ) => {
 
   try {

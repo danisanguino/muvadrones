@@ -36,13 +36,13 @@ function ProjectDetail () {
     const allFieldsUpdate = {
       "nombre": projectName || project?.nombre,
       "Miniatura": projectMin || project?.Miniatura,
-      "Modelo3D": project3D,
-      "NubePuntos": projectCloud,
-      "Ortomosaico": projectOrto,
-      "CurvasNivel": projectCurve,
-      "MDT": projectMDT,
-      "MDS": projectMDS,
-      "PlanoCAD": projectCAD
+      "Modelo3D": project3D || project?.Modelo3D,
+      "NubePuntos": projectCloud || project?.NubePuntos,
+      "Ortomosaico": projectOrto || project?.Ortomosaico,
+      "CurvasNivel": projectCurve || project?.CurvasNivel,
+      "MDT": projectMDT || project?.MDT,
+      "MDS": projectMDS || project?.MDS,
+      "PlanoCAD": projectCAD || project?.PlanoCAD
      }
 
     const { error: projectError} = await supabase
