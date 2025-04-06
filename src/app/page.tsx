@@ -18,9 +18,13 @@ export default function Home() {
   const { setCompanyId } = useCompany();
   
   return (
-    <div>
-        <p> Area de clientes muvadrones</p>
+    <>
+      <FbxModel url="https://res.cloudinary.com/drp3zy62g/raw/upload/v1743935090/Rubik_s_Cube_ulewvy.FBX"/>
+    <div className="login">
         <form onSubmit={(e) => handleLogin(e, setCompanyId, router, email, password)}>
+
+          <img src="./logo_muvadrones01.svg" alt="logo principal muvadrones" />
+
           <input
           type="email"
           placeholder="Email"
@@ -38,9 +42,12 @@ export default function Home() {
           />
 
           <button type="submit">Acceder</button>
+
+          <p>Aviso Legal sobre Protección de Datos.<br/>
+          En Muvadrones te informamos que, aunque contamos con tus datos tras haber otorgado tu autorización, no realizaremos ningún tratamiento adicional sobre los mismos. Tus datos están almacenados de forma segura y únicamente se conservarán según lo requerido por normativa, sin ser utilizados para ningún otro fin.</p>
         </form>
-        {/* <FbxModel url="https://drive.google.com/uc?export=download&id=1-z94aT0TYnVBptAMf7Zio2haBMiwXlbd"/> */}
     </div>
+    </>
 
   );
 };

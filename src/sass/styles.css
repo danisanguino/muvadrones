@@ -1,6 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 body {
   background-color: #444445;
+  font-family: "Lato", sans-serif;
+}
+
+form {
+  background-color: #3A3A3A;
+  color: #BDB9B9;
+  border: 1px solid #ECE9E9;
+  padding: 20px;
+  border-radius: 5px;
+}
+form input {
+  border: 1px solid red;
+}
+form button {
+  border: 1px solid green;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

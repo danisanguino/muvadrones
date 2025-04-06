@@ -8,7 +8,8 @@ import { ICompany, IProject, IUser } from '../interfaces/interfaces';
 import { fetchData } from "@/utils/fetchData";
 import { Sidebar } from "../components/sidebar";
 
-const ClientsPage = () =>  {
+export default function ClientsPage() {
+// const ClientsPage = () =>  {
   const router = useRouter();
   // const searchParams = useSearchParams();
   const [loading, setLoading] = useState<string>("");
@@ -42,4 +43,4 @@ const ClientsPage = () =>  {
   );
 };
 
-export default withAuth(["cliente"])(ClientsPage); 
+// export default withAuth(["cliente"])(ClientsPage); 
