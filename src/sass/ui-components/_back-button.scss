@@ -1,18 +1,26 @@
 @use "../base/variables" as v;
 
 .back-button {
-  margin-top: 20px;
-  background-color: transparent;
-  // border: none;
+  background-color: v.$bg-dark-grey;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  color: v.$border-dark-grey;
+  border: 1px solid v.$border-dark-grey;
+  border-radius: 6px;
+  margin: 10px 0;
   font-size: 20px;
+  font-weight: bold;
+  padding: 0 20px;
+  transition: color 0.2s ease;
 
   .img-arrow {
     width: 30px;
     height: 30px;
   }
   &:hover {
-    // background-color: transparent;
     color: v.$light-grey;
     border-color: v.$light-grey;
   }
 }
+

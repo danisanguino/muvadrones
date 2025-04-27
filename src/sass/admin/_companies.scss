@@ -1,0 +1,45 @@
+@use "../base/variables" as v;
+
+.container-admin {
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+//CREATE COMPANY
+
+.container-admin-projects{
+  ul {
+    margin-left: -40px;
+  }
+  .button__container-projects {
+    background-color: v.$bg-dark-grey;
+    color: v.$font-grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 145px;
+    height: 145px;
+    font-size: 14px;
+
+    .company-icon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.logo__container-projects {
+  margin-top: 20px;
+}
+
+.container-admin__logout-button {
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  padding: 10px;
+}
+

@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { ICompany } from "../interfaces/interfaces";
 import Logout from "../components/logout";
 import { useRouter } from "next/navigation";
+import { IoBusiness } from "react-icons/io5";
+
 
 const AdminPage = () => {
   const [companys, setCompanys] = useState<ICompany[] | null>([]);
@@ -56,8 +58,10 @@ const AdminPage = () => {
           </li>
         ))}
       </ul>
-      <button onClick={() => router.push("admin/createCompany")} className="button__container-projects">Crear empresa</button>
-    <Logout />
+      <button onClick={() => router.push("admin/createCompany")} className="button__container-projects"> <IoBusiness className="company-icon"/>Crear empresa </button>
+    </div>
+    <div className="container-admin__logout-button">
+      <Logout />
     </div>
   </div>
   );

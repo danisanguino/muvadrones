@@ -11,7 +11,7 @@ function CreateCompany (){
   const router = useRouter();
 
   return (
-    <>
+    <div className="container-admin"> 
     <h2>Crear empresa</h2>
     <form onSubmit={(e) => handleCreateCompany(e, companyName, setCompanyName, router)}>
       <input
@@ -23,7 +23,7 @@ function CreateCompany (){
       <button>Crear</button>
     </form>
     <BackButton/>
-    </>
+    </div>
   )
 }
 

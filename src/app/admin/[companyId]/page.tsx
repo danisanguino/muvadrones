@@ -8,6 +8,10 @@ import { handleDeleteUser } from "@/utils/handleDeleteUser";
 import { withAuth } from "@/utils/withAuth";
 import { useParams, useRouter } from "next/navigation"
 import { useEffect, useState } from "react";
+import { FaRegEdit } from "react-icons/fa";
+import { MdOutlineDeleteForever } from "react-icons/md";
+
+
 
 function companyData() {
   const [userName, setUserName] = useState<IUser[] | null>([]);
@@ -42,36 +46,44 @@ function companyData() {
   if (loading) return <p>Cargando datos...</p>;
 
   return (
-    <>
-      <h2>Usuarios de {companyName?.nombre} </h2>
-        <ul>
-          {userName?.map((e) => (
-            <li key={e.id}>
-              {e.email}
-              <button onClick={()=>handleUpdateUser(e.id)}>Editar</button>
-              <button onClick={()=>handleDeleteUser(e.id, e.email)}>Borrar</button>
-            </li>
-          ))}
-        </ul>
-        <h2>Proyectos</h2>
-        {projects ? 
-          ( <ul>
-              {projects.map((e)=> (
-               <li key={e.id}>
-                {e.nombre}
-                <button onClick={()=> handleUpdateProject(e.id)}>Editar</button>
-                <button onClick={()=> handleDeleteProject(e.id)}>Borrar</button>
-              </li> 
+    <div className="container-admin">
+      <h2>Empresa: {companyName?.nombre}</h2>
+      <div className="container-users-projects">
+        <div className="container-users-projects__list square-shadow">
+          <h3>Usuarios</h3>
+            <ul>
+              {userName?.map((e) => (
+                <li key={e.id}>
+                  {e.email}
+                  <button onClick={()=>handleUpdateUser(e.id)} className="container-users-projects__list--button button-edit" title="editar"><FaRegEdit className="img-button-edit"/></button>
+                  <button onClick={()=>handleDeleteUser(e.id, e.email)} className="container-users-projects__list--button button-delete" title="borrar"><MdOutlineDeleteForever className="img-button-delete"/></button>
+                </li>
               ))}
             </ul>
-          ) : (
-          <p>Esta empresa no tiene proyectos</p>
-          )
-        }
-        <button onClick={handleCreateUser}>Crear usuario AQUI</button>
-        <button onClick={handleCreateProject}>Crear proyecto AQUI</button>
+          <button onClick={handleCreateUser} className="container-users-projects__create-button">Crear usuario</button>
+        </div>
+
+        <div className="container-users-projects__list square-shadow">
+          <h3>Proyectos</h3>
+            {projects ? 
+              ( <ul>
+                  {projects.map((e)=> (
+                  <li key={e.id}>
+                    {e.nombre}
+                    <button onClick={()=> handleUpdateProject(e.id)}className="container-users-projects__list--button button-edit" title="editar"><FaRegEdit className="img-button-edit"/></button>
+                    <button onClick={()=> handleDeleteProject(e.id)}className="container-users-projects__list--button button-delete" title="borrar"><MdOutlineDeleteForever className="img-button-delete"/></button>
+                  </li> 
+                  ))}
+                </ul>
+              ) : (
+              <p>Esta empresa no tiene proyectos</p>
+              )
+            }
+            <button onClick={handleCreateProject}>Crear proyecto AQUI</button>
+          </div>
+        </div>
         <BackButton/>
-    </>
+    </div>
   )
 }
 

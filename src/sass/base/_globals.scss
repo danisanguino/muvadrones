@@ -55,6 +55,7 @@ form {
     transition: all 0.3s ease;
     display: flex;
     justify-content: center;
+    align-items: center;
 
     &:hover {
       background-color: v.$bg-dark-grey;
@@ -73,7 +74,7 @@ form {
   }
 };
 
-button {
+.logout-button {
   background-color: v.$bg-dark-grey;
   display: flex;
   align-items: center;
@@ -97,5 +98,19 @@ button {
     color: v.$red;
     border: 1px solid v.$red;
   }
+};
+
+
+
+.square-shadow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: v.$bg-dark-grey;
+  border: 1px solid v.$border-dark-grey;
+  padding: 70px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 };
 

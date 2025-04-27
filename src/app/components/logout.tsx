@@ -11,8 +11,8 @@ export default function Logout() {
 
 
   return (
-    <>
-    <button onClick={()=> logout(setLoading, router)} >Log out <IoMdLogOut className="img-btn"/></button>
-    </>
+    
+    <button onClick={()=> logout(setLoading, router)} className="logout-button" >Log out <IoMdLogOut className="img-btn"/></button>
+    
   );
 };

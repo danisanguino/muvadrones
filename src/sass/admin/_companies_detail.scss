@@ -1,0 +1,76 @@
+@use "../base/variables" as v;
+
+.container-users-projects {
+  display: flex;
+  gap: 20px;
+  justify-content: center
+};
+
+.container-users-projects__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 30px;
+
+  h3 {
+    font-size:23px
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    // gap:5px;
+    font-weight: 800;
+  }
+}
+
+.container-users-projects__list--button {
+  border: none;
+  background-color: transparent;
+  color: v.$font-grey;
+
+  .img-button-edit {
+    width: 23px;
+    height: 23px;
+    margin-left: 5px;
+  }
+  .img-button-delete {
+    width: 30px;
+    height: 30px;
+    margin-left: -10px;
+    :hover {
+      color: v.$red;
+    }
+  }
+}
+
+.container-users-projects__create-button {
+  background-color: v.$bg-dark-grey;
+  color: v.$font-grey;
+  border: 1px solid v.$border-dark-grey;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 145px;
+  height: 145px;
+  font-size: 14px;
+  font-weight: 600;
+
+  :hover {
+    border: 1px solid red;
+  }
+
+  .icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+  }
+};
