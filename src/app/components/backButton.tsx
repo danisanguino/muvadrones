@@ -1,4 +1,6 @@
 import { useRouter } from "next/navigation"
+import { MdOutlineArrowBack } from "react-icons/md";
+
 
 export default function BackButton () {
   const router = useRouter();
@@ -8,6 +10,6 @@ export default function BackButton () {
   }
   
   return(
-    <button onClick={handleBack}>Volver</button>
+      <button onClick={handleBack} className="back-button"> Volver <MdOutlineArrowBack className="img-arrow" /></button>
   )
 }

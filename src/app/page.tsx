@@ -19,7 +19,6 @@ export default function Home() {
   
   return (
     <>
-      <FbxModel url="https://res.cloudinary.com/drp3zy62g/raw/upload/v1743935090/Rubik_s_Cube_ulewvy.FBX"/>
     <div className="login">
         <form onSubmit={(e) => handleLogin(e, setCompanyId, router, email, password)}>
 
@@ -43,7 +42,7 @@ export default function Home() {
 
           <button type="submit">Acceder</button>
 
-          <p>Aviso Legal sobre Protección de Datos.<br/>
+          <p><strong>Aviso Legal sobre Protección de Datos.</strong><br/>
           En Muvadrones te informamos que, aunque contamos con tus datos tras haber otorgado tu autorización, no realizaremos ningún tratamiento adicional sobre los mismos. Tus datos están almacenados de forma segura y únicamente se conservarán según lo requerido por normativa, sin ser utilizados para ningún otro fin.</p>
         </form>
     </div>

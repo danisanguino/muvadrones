@@ -23,15 +23,18 @@ export function Sidebar() {
 
 
   return (
-    <>
+    <div className="sidebar">
+      <div className="logo-data-user">
+      <img src="/logo_muvadrones01.svg" alt="logo principal muvadrones" />
       {!companyName ? (
         <h2>Admin</h2>
       ):(
         <h2>{companyName && companyName?.nombre}</h2>
       )}
-      <p>{userName && userName?.nombre}</p>
+      <p>Hola {userName?.nombre || userName?.email}</p>
+      </div>
       <Logout/> 
-    </>
+    </div>
 
   );
 }

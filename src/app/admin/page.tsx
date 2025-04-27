@@ -44,18 +44,22 @@ const AdminPage = () => {
 
 
   return (
-  <>
-    <h1>🛠️ Panel de Administración 🚀</h1>
-    <ul>
-      {companys?.map((e) => (
-        <li key={e.id}>
-          <button onClick={() => handleCompany(e.id)}>{e.nombre}</button>
-        </li>
-      ))}
-    </ul>
-    <button onClick={() => router.push("admin/createCompany")}>Crear empresa</button>
+  <div className="container-admin">
+    <div className="container-admin-projects container-projects">
+      <img src="/logo_muvadrones01.svg" className="logo__container-projects"/>
+      <h1>Panel de Administración</h1>
+      <p>Pulsa una empresa para ver sus proyectos y usuarios</p>
+      <ul>
+        {companys?.map((e) => (
+          <li key={e.id}>
+            <button onClick={() => handleCompany(e.id)}>{e.nombre}</button>
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => router.push("admin/createCompany")} className="button__container-projects">Crear empresa</button>
     <Logout />
-  </>
+    </div>
+  </div>
   );
 };
 

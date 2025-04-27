@@ -2,20 +2,92 @@
 body {
   background-color: #444445;
   font-family: "Lato", sans-serif;
+  color: #BDB9B9;
+  height: 100vh;
+}
+
+button {
+  cursor: pointer;
 }
 
 form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #3A3A3A;
   color: #BDB9B9;
-  border: 1px solid #ECE9E9;
-  padding: 20px;
-  border-radius: 5px;
+  border: 1px solid #676666;
+  padding: 70px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
 }
 form input {
-  border: 1px solid red;
+  width: 100%;
+  height: 55px;
+  background-color: #454545;
+  color: #BDB9B9;
+  border: 1px solid #676666;
+  border-radius: 6px;
+  padding: 0 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+form :focus {
+  outline: none;
+  border: 1px solid #BCBCBC;
 }
 form button {
-  border: 1px solid green;
+  width: 100%;
+  height: 55px;
+  background-color: #BCBCBC;
+  color: #3A3A3A;
+  border: 1px solid #676666;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+}
+form button:hover {
+  background-color: #3A3A3A;
+  color: #BCBCBC;
+  border: 1px solid #ECE9E9;
+}
+form img {
+  width: 60%;
+  margin-bottom: 60px;
+}
+form p {
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #3A3A3A;
+  display: flex;
+  align-items: center;
+  height: 35px;
+  color: #676666;
+  border: 1px solid #676666;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 20px;
+  transition: color 0.2s ease;
+}
+button .img-btn {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+}
+button:hover {
+  color: #B80202;
+  border: 1px solid #B80202;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -326,5 +398,122 @@ template {
  */
 [hidden] {
   display: none;
+}
+
+.login {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  background-color: #3A3A3A;
+  border-right: 1px solid #676666;
+  color: #BDB9B9;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo-data-user {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.logo-data-user h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0 0 0;
+}
+.logo-data-user p {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.logo-data-user img {
+  width: 250px;
+}
+
+canvas {
+  background-color: aqua;
+  width: 700px;
+}
+
+.back-button {
+  margin-top: 20px;
+  background-color: transparent;
+  font-size: 20px;
+}
+.back-button .img-arrow {
+  width: 30px;
+  height: 30px;
+}
+.back-button:hover {
+  color: #BCBCBC;
+  border-color: #BCBCBC;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: left;
+}
+
+.container-projects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+}
+.container-projects ul {
+  list-style: none;
+}
+.container-projects button {
+  width: 100%;
+  height: 55px;
+  background-color: #BCBCBC;
+  color: #3A3A3A;
+  border: 1px solid #676666;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.container-projects button:hover {
+  background-color: #3A3A3A;
+  color: #BCBCBC;
+  border: 1px solid #ECE9E9;
+}
+
+.container-projects-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.container-projects-detail__name-project-and-back {
+  display: flex;
+  align-items: center;
+}
+
+.container-admin {
+  background-color: red;
+}
+
+.logo__container-projects {
+  background-color: blue;
 }
 /*# sourceMappingURL=styles.css.map */

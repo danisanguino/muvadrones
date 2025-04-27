@@ -7,6 +7,7 @@ import { IProject } from '../../interfaces/interfaces';
 import { fetchProjectDetail } from "@/utils/fetchProjectDetail";
 import BackButton from "@/app/components/backButton";
 import FbxModel from "@/app/components/fbxModel";
+import { Sidebar } from "@/app/components/sidebar";
 
 function ProjectDetailPage() {
 
@@ -21,13 +22,19 @@ function ProjectDetailPage() {
   
 
   return (
-    <div>
-      {loading && <p>{loading}</p>}
-      <h3>Hola, estás en el proyecto: {project?.nombre}</h3>
-      {/* Renderizar el modelo FBX si el proyecto tiene una URL */}
-      <FbxModel url="https://drive.google.com/file/d/1-z94aT0TYnVBptAMf7Zio2haBMiwXlbd/view?usp=drive_link"/>
-      <FbxModel url={project?.Miniatura || ""}/>
-      <BackButton/>
+    <div className="container">
+      <Sidebar/>
+      <div className="container-projects-detail">
+        <div className="container-projects-detail__name-project-and-back">
+        {loading && <p>{loading}</p>}
+        <h1>{project?.nombre}</h1>
+        </div>
+        {/* Renderizar el modelo FBX si el proyecto tiene una URL */}
+        {project?.Miniatura && <FbxModel url={project.Miniatura} />}
+        {project?.Modelo3D && <FbxModel url={project.Modelo3D} />}
+        {project?.NubePuntos && <FbxModel url={project.NubePuntos} />}
+        <BackButton/>
+      </div>
     </div>
   );
 }

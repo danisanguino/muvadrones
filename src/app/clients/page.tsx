@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 import { useCompany } from "../context/companyContext";
 import { ICompany, IProject, IUser } from '../interfaces/interfaces';
 import { fetchData } from "@/utils/fetchData";
-import { Sidebar } from "../components/sidebar";
+import { Sidebar } from '../components/sidebar';
 
-export default function ClientsPage() {
-// const ClientsPage = () =>  {
+
+const ClientsPage = () =>  {
   const router = useRouter();
   // const searchParams = useSearchParams();
   const [loading, setLoading] = useState<string>("");
@@ -31,16 +31,20 @@ export default function ClientsPage() {
   };
   
   return (
-    <>
-      <ul>
-        {projects && projects.map((e) => (
-          <li key={e.id}>
-            <h4><button onClick={()=> projectDetail(e.id)}>{e.nombre}</button></h4>
-          </li>
-        ))}
-      </ul>
-    </>
+    <div className="container">
+      <Sidebar/>
+      <div className="container-projects">
+        <h1>Proyectos {companyName?.nombre}</h1>
+        <ul>
+          {projects && projects.map((e) => (
+            <li key={e.id}>
+              <h4><button onClick={()=> projectDetail(e.id)}>{e.nombre}</button></h4>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 };
 
-// export default withAuth(["cliente"])(ClientsPage); 
+export default withAuth(["cliente"])(ClientsPage); 

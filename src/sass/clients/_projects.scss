@@ -1,0 +1,53 @@
+@use "../base/variables" as v;
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: left;
+}
+
+.container-projects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+
+  ul {
+    list-style: none;
+  }
+
+  button {
+    width: 100%;
+    height: 55px;
+    background-color: v.$bg-light-grey;
+    color: v.$bg-dark-grey;
+    border: 1px solid v.$border-dark-grey;
+    border-radius: 6px;
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: v.$bg-dark-grey;
+      color: v.$bg-light-grey;
+      border: 1px solid v.$border-light-grey;
+    }
+  }
+}
+
+.container-projects-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.container-projects-detail__name-project-and-back {
+  display: flex;
+  align-items: center;
+}

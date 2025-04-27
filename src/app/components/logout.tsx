@@ -1,6 +1,9 @@
 import { logout } from "@/utils/logout"
 import { useRouter } from "next/navigation"
 import { useState } from "react";
+import { IoMdLogOut } from "react-icons/io";
+
+
 
 export default function Logout() {
   const [loading, setLoading] = useState<string>("");
@@ -8,6 +11,8 @@ export default function Logout() {
 
 
   return (
-    <button onClick={()=> logout(setLoading, router)}>Cerrar sesión</button>
+    <>
+    <button onClick={()=> logout(setLoading, router)} >Log out <IoMdLogOut className="img-btn"/></button>
+    </>
   );
 };
