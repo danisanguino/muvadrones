@@ -30,7 +30,7 @@ importers:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
       sass:
-        specifier: ^1.86.1
+        specifier: ^1.87.0
         version: 1.87.0
       three:
         specifier: ^0.175.0

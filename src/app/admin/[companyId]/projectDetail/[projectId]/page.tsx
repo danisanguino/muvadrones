@@ -63,7 +63,7 @@ function ProjectDetail () {
   }
 
   return (
-    <div>
+    <div className="container-admin">
       <h3>Modificar: {project?.nombre}</h3>
       <form onSubmit={handleUpdateProject}>
         <label>Nombre Proyecto</label>

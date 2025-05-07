@@ -6,7 +6,6 @@ import { useCompany } from "./context/companyContext";
 import { handleLogin } from "@/utils/handleLogin";
 import FbxModel from "./components/fbxModel";
 
-import "../css/styles.css";
 
 export default function Home() {
   const router = useRouter();

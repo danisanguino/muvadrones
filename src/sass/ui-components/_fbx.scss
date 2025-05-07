@@ -1,8 +1,11 @@
 @use "../base/variables" as v;
 
 canvas {
-  // display: block;
-  // background-color: aqua;
-  width: 700px;
-  // border: 1px solid v.$border-light-grey; 
+  // width: 100%;
+  max-width: 800px;
+  height: 500px;
+  border: 1px solid v.$border-dark-grey;
+  border-radius: 15px;
+  background-color: v.$bg-dark-grey;
+  box-sizing: border-box;
 }

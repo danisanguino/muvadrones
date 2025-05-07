@@ -5,12 +5,15 @@ import { ICompany, IProject, IUser } from "@/app/interfaces/interfaces";
 import { fetchData } from "@/utils/fetchData";
 import { useEffect, useState } from "react"
 import Logout from "./logout";
+import BackButton from "./backButton";
+import { usePathname } from 'next/navigation';
 
 export function Sidebar() {
   const [companyName, setCompanyName] = useState<ICompany | undefined>(undefined);
   const [userName, setUserName] = useState<IUser | undefined>(undefined);
   const [loading, setLoading] = useState<string>("");
   const [projects, setProjects] = useState<IProject[] | null>(null);
+  const pathname = usePathname();
   
   const { companyId } = useCompany();
 
@@ -20,6 +23,11 @@ export function Sidebar() {
 
   }, [])
   
+
+  const normalizedPath = pathname.replace(/\/$/, "");
+  const hiddenRoutes = ["/clients"];
+  const shouldShowBackButton = !hiddenRoutes.includes(normalizedPath);
+
 
 
   return (
@@ -33,7 +41,10 @@ export function Sidebar() {
       )}
       <p>Hola {userName?.nombre || userName?.email}</p>
       </div>
-      <Logout/> 
+      <div>
+        {shouldShowBackButton && <BackButton />}
+        <Logout/> 
+      </div>
     </div>
 
   );

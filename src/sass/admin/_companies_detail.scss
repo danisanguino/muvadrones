@@ -45,9 +45,7 @@
     width: 30px;
     height: 30px;
     margin-left: -10px;
-    :hover {
-      color: v.$red;
-    }
+    color: v.$red;
   }
 }
 
@@ -59,18 +57,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 145px;
   height: 145px;
   font-size: 14px;
   font-weight: 600;
+  transition: all 0.3s ease;
 
-  :hover {
-    border: 1px solid red;
+  &:hover {
+    border: 1px solid  v.$border-light-grey;
   }
 
   .icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin-bottom: 5px;
   }
 };

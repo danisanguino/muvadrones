@@ -1,5 +1,6 @@
-import { CompanyProvider } from "./context/companyContext"; // Asegúrate de importar correctamente el contexto
+import { CompanyProvider } from "./context/companyContext"; 
 import { ReactNode } from "react";
+import "../css/styles.css";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

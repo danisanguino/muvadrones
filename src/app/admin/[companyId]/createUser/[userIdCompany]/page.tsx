@@ -1,24 +1,31 @@
 "use client"
 
 import BackButton from "@/app/components/backButton";
+import { ICompany } from "@/app/interfaces/interfaces";
+import { fetchUsersAndProjects } from "@/utils/fetchUsersAndProjects";
 import { handleCreateUser } from "@/utils/handleCreateUser";
 import { withAuth } from "@/utils/withAuth";
 import { useParams, useRouter } from "next/navigation"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function CreateUser() {
   const [userName, setUserName] = useState<string>("");
+  const [companyName, setCompanyName] = useState<ICompany | null >();
   const [userMail, setUserMail] = useState<string>("");
   const [userPass, setUserPass] = useState<string>("");
   const [userRole, setUserRole] = useState<string>("cliente");
 
   const { userIdCompany } = useParams();
 
+    useEffect(() => {
+     fetchUsersAndProjects(userIdCompany, setCompanyName, () => {}, () => {}, () => {});
+    }, []);
+
   const router= useRouter();
 
   return (
-    <>
-      <h2>Crear usuario para empresa con ID: {userIdCompany}</h2>
+    <div className="container-admin">
+      <h2>Crear usuario para {companyName?.nombre}</h2>
       <form onSubmit={(e)=>handleCreateUser(e, userMail, setUserMail, userPass, setUserPass, userName, setUserName, userRole, userIdCompany, router)}>
         <input
           type="text"
@@ -44,7 +51,6 @@ function CreateUser() {
           required
         />
 
-        <p>Rol</p>
         <select
           value={userRole}
           onChange={(e) => setUserRole(e.target.value)}
@@ -56,7 +62,7 @@ function CreateUser() {
         <button>Añadir</button>
       </form>
       <BackButton/>
-    </>
+    </div>
   )
 }
 

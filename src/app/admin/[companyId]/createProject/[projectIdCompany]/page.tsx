@@ -1,13 +1,16 @@
 "use client"
 
 import BackButton from "@/app/components/backButton";
+import { ICompany } from "@/app/interfaces/interfaces";
+import { fetchUsersAndProjects } from "@/utils/fetchUsersAndProjects";
 import { handleCreateProject } from "@/utils/handleCreateProject";
 import { withAuth } from "@/utils/withAuth";
 import { useParams, useRouter} from "next/navigation"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function CreateProject () {
 
+  const [companyName, setCompanyName] = useState<ICompany | null >();
   const [projectName, setProjectName] = useState<string>("");
   const [projectMin, setProjectMin] = useState<string>(""); 
   const [project3D, setProject3D] = useState<string>(""); 
@@ -22,10 +25,14 @@ function CreateProject () {
 
   const {projectIdCompany } = useParams();
 
+  useEffect(() => {
+    fetchUsersAndProjects(projectIdCompany, setCompanyName, () => {}, () => {}, () => {});
+  }, [])
+  
 
   return (
-    <>
-      <h2>Soy el proyecto a crear para {projectIdCompany}</h2>
+    <div className="container-admin">
+      <h2>Nuevo proyecto para {companyName?.nombre} </h2>
       <form onSubmit={(e)=>handleCreateProject(e, projectIdCompany, projectName, projectMin, project3D, projectCloud, projectOrto, projectCurve, projectMDT, projectMDS, projectCAD, router )}>
         <input
           type="text"
@@ -95,7 +102,7 @@ function CreateProject () {
         <button>Crear</button>
       </form>
       <BackButton/>
-    </>
+    </div>
   )
 }
 

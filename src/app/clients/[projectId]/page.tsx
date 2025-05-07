@@ -5,7 +5,6 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IProject } from '../../interfaces/interfaces';
 import { fetchProjectDetail } from "@/utils/fetchProjectDetail";
-import BackButton from "@/app/components/backButton";
 import FbxModel from "@/app/components/fbxModel";
 import { Sidebar } from "@/app/components/sidebar";
 
@@ -29,11 +28,65 @@ function ProjectDetailPage() {
         {loading && <p>{loading}</p>}
         <h1>{project?.nombre}</h1>
         </div>
+
         {/* Renderizar el modelo FBX si el proyecto tiene una URL */}
-        {project?.Miniatura && <FbxModel url={project.Miniatura} />}
-        {project?.Modelo3D && <FbxModel url={project.Modelo3D} />}
-        {project?.NubePuntos && <FbxModel url={project.NubePuntos} />}
-        <BackButton/>
+        
+        {project?.Miniatura?.trim() && (
+          <>
+            <p>Miniatura</p>
+            <FbxModel url={project.Miniatura} />
+          </>
+        )}
+
+        {project?.Modelo3D?.trim() && (
+          <>
+            <p>Modelo 3D</p>
+            <FbxModel url={project.Modelo3D} />
+          </>
+        )}
+
+        {project?.NubePuntos?.trim() && (
+          <>
+            <p>Nube de Puntos</p>
+            <FbxModel url={project.NubePuntos} />
+          </>
+        )}
+
+        {project?.CurvasNivel?.trim() && (
+          <>
+            <p>Curvas de Nivel</p>
+            <FbxModel url={project.CurvasNivel} />
+          </>
+        )}
+
+        {project?.Ortomosaico?.trim() && (
+          <>
+            <p>Ortomosaico</p>
+            <FbxModel url={project.Ortomosaico} />
+          </>
+        )}
+
+        {project?.MDT?.trim() && (
+          <>
+            <p>MDT</p>
+            <FbxModel url={project.MDT} />
+          </>
+        )}
+
+        {project?.MDS?.trim() && (
+          <>
+            <p>MDS</p>
+            <FbxModel url={project.MDS} />
+          </>
+        )}
+
+        {project?.PlanoCAD?.trim() && (
+          <>
+            <p>PlanoCAD</p>
+            <FbxModel url={project.PlanoCAD} />
+          </>
+        )}
+
       </div>
     </div>
   );

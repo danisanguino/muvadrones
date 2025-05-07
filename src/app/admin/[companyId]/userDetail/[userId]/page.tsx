@@ -57,14 +57,8 @@ function UserDetail () {
   };
   
   return (
-    <>
+    <div className="container-admin">
       <h1>Actualizar usuario: {user?.nombre || user?.email}</h1>
-    
-      {/* {!user?.nombre ? (
-        <h1>Actualizar usuario: {user?.email}</h1>
-        ):(
-        <h1>Actualizar usuario: {user?.nombre}</h1>
-      )} */}
 
       <form onSubmit={handleUpdateUser}>
         <input
@@ -97,7 +91,7 @@ function UserDetail () {
       </form>
      
       <BackButton/>
-    </>
+    </div>
   )
 }
 
