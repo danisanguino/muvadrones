@@ -52,12 +52,9 @@ Authentication and database are handled by Supabase.
 pnpm install
 
 # Start development server
-pnpm dev
+pnpm run dev
 
 # Build for production
 pnpm build
-
-# Run linter
-pnpm lint
 
 ``` 
