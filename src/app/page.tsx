@@ -1,10 +1,9 @@
 "use client"
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useCompany } from "./context/companyContext";
 import { handleLogin } from "@/utils/handleLogin";
-import FbxModel from "./components/fbxModel";
 
 
 export default function Home() {

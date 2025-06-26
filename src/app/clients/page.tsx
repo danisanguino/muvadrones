@@ -11,7 +11,6 @@ import { Sidebar } from '../components/sidebar';
 
 const ClientsPage = () =>  {
   const router = useRouter();
-  // const searchParams = useSearchParams();
   const [loading, setLoading] = useState<string>("");
   const [companyName, setCompanyName] = useState<ICompany>();
   const [userName, setUserName] = useState<IUser>();

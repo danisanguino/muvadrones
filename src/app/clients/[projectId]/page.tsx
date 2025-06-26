@@ -11,12 +11,14 @@ import { Sidebar } from "@/app/components/sidebar";
 function ProjectDetailPage() {
 
   const [project, setProject] = useState<IProject | null>();
-  const [loading, setLoading] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null); // Opcional: manejar error si lo necesitas
+  
   
   const { projectId } = useParams(); //get id from URL
 
   useEffect(() => {
-    fetchProjectDetail(projectId, setProject, setLoading);
+    fetchProjectDetail(projectId, setProject, setLoading, setError);
   }, [])
   
 

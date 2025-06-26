@@ -13,6 +13,7 @@ function ProjectDetail () {
 
   const [project, setProject] = useState<IProject | null>();
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null); 
   const [projectName, setProjectName] = useState<string>("");
   const [projectMin, setProjectMin] = useState<string>(""); 
   const [project3D, setProject3D] = useState<string>(""); 
@@ -27,7 +28,7 @@ function ProjectDetail () {
 
 
   useEffect(() => {
-    fetchProjectDetail(projectId, setProject, setLoading);
+    fetchProjectDetail(projectId, setProject, setLoading, setError);
   }, [])
 
   const handleUpdateProject = async (e: React.FormEvent)=> {

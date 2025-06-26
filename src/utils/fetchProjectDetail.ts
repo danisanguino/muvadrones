@@ -4,26 +4,27 @@ import { Dispatch, SetStateAction } from "react";
 export const fetchProjectDetail = async (
   projectId: string | string[] | undefined,
   setProject: (arg0: any) => void,
-  setLoading: Dispatch<SetStateAction<string>>
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  setError: Dispatch<SetStateAction<string | null>>  // Añadimos setError para manejar errores
 ) => {
-
   try {
-    const { data, error} = await supabase
-    .from("proyectos")
-    .select("*")
-    .eq("id", projectId)
-    .single();
+    const { data, error } = await supabase
+      .from("proyectos")
+      .select("*")
+      .eq("id", projectId)
+      .single();
 
-    if(error) {
-      alert("Error loading project data.");
+    if (error) {
+      setError("Error al cargar los datos del proyecto.");
+      setLoading(false); // Detener carga
       return;
-    };
+    }
 
     setProject(data);
-
+    setLoading(false); // Detener carga al obtener datos
   } catch (error) {
-    // setLoading("There was an error loading data.");
-    console.log(error)
-    
-  };
+    setError("Hubo un problema al cargar los datos.");
+    setLoading(false); // Detener carga
+    console.log(error);
+  }
 };

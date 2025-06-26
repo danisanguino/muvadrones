@@ -42,7 +42,7 @@ export const withAuth = (allowedRoles: string[]) => (WrappedComponent: React.FC)
       checkAuth();
     }, [router, allowedRoles]); 
 
-    if (loading) return <p>⏳ Cargando... 🚀</p>; 
+    if (loading) return <p className="auth-loading">Cargando datos... </p>; 
     return <WrappedComponent {...props} />; 
   };
 
